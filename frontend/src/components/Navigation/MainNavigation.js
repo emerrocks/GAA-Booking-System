@@ -2,12 +2,16 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import AuthContext from '../../context/auth-context'
 import './MainNavigation.css'
+import Logo from '../../images/naomh-pol-logo.jpg'
 
 const mainNavigation = (props) => (
   <AuthContext.Consumer>
     {(context) => {
       return (
         <header className="main-nav">
+          <div className="logo">
+          <img src= {Logo} alt="naomh-pol-logo"/>
+          </div>
           <div className="main-nav-logo">
             <h1>GAA Booking System </h1>
           </div>
