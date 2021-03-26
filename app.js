@@ -26,7 +26,7 @@ app.use(
   graphqlHttp({
     schema: graphQlSchema,
     rootValue: graphQlResolvers,
-    graphiql: true,
+    graphiql: true, //testing tool for graphql api
   }),
 )
 
