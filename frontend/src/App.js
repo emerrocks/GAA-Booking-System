@@ -6,6 +6,7 @@ import EventsPage from './pages/Events'
 import BookingsPage from './pages/Bookings'
 import MainNavigation from './components/Navigation/MainNavigation'
 import AuthContext from './context/auth-context'
+import DashboardPage from './pages/Dashboard'
 
 class App extends Component {
   state = {
@@ -35,9 +36,14 @@ class App extends Component {
             <MainNavigation />
             <main className="main-content">
               <Switch>
-                {this.state.token && <Redirect from="/" to="/events" exact />}
+                {this.state.token && (
+                  <Redirect from="/" to="/dashboard" exact />
+                )}
                 {this.state.token && (
                   <Redirect from="/auth" to="/events" exact />
+                )}
+                {!this.state.token && (
+                  <Route path="/dashboard" component={DashboardPage} />
                 )}
                 {!this.state.token && (
                   <Route path="/auth" component={AuthPage} />
@@ -46,7 +52,7 @@ class App extends Component {
                 {this.state.token && (
                   <Route path="/bookings" component={BookingsPage} />
                 )}
-                {!this.state.token && <Redirect to="/auth" exact />}
+                {!this.state.token && <Redirect to="/dashboard" exact />}
               </Switch>
             </main>
           </AuthContext.Provider>
