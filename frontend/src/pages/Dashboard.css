@@ -1,0 +1,168 @@
+.container {
+  margin: 0 20px;
+}
+
+.header {
+  height: 600px;
+  border-bottom: 2px solid #ccc;
+}
+.header .top-nav {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+}
+.header .top-nav .logo {
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+}
+.header .top-nav .logo img {
+  margin-left: 10px;
+  height: 70%;
+}
+.header .top-nav .logo i {
+  margin-top: 5px;
+  font-size: 28px;
+  opacity: 0.5;
+}
+.header .top-nav .intro {
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+}
+.header .top-nav .intro .intro-icon {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.header .top-nav .intro .intro-icon h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.header .top-nav .intro .intro-icon span {
+  padding-top: 5px;
+  font-size: 12px;
+  display: block;
+}
+.header .top-nav .support {
+  width: 20%;
+  padding-top: 25px;
+}
+.header .top-nav i {
+  padding-right: 5px;
+}
+.header .image-nav {
+  height: 400px;
+  margin: 0 -20px;
+  background-image: url('../images/ireland-pitch.jpeg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: darkgray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header .image-nav .title-image {
+  color: white;
+  font-size: 35px;
+  margin: 40px 0;
+}
+.header .image-nav .btn-search {
+  border-radius: 25px;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  width: 40%;
+}
+.header .image-nav .btn-search .input-search {
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: white;
+  padding-left: 10px;
+}
+.header .image-nav .btn-search i {
+    color: red;
+}
+.header .bottom-nav {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.header .bottom-nav .bottom-item {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  justify-content: center;
+  align-items: center;
+}
+.header .bottom-nav .bottom-item span {
+  padding-top: 5px;
+  display: block;
+}
+.header .bottom-nav .bottom-item span:hover {
+  background-color: yellow;
+  cursor: pointer;
+}
+.header .bottom-nav .bottom-item i {
+  color: #ccc;
+}
+.contact {
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #e8e8e8;
+}
+.contact .left-side {
+  width: 50%;
+  padding-left: 20px;
+}
+.contact .left-side .title {
+  display: block;
+  font-size: 40px;
+  margin-top: 30px;
+}
+.contact .left-side .second-title {
+  margin-top: 20px;
+  display: block;
+  font-size: 20px;
+}
+.contact .left-side .third-title {
+  margin-top: 20px;
+  display: block;
+  font-size: 20px;
+}
+.contact .left-side a {
+  display: block;
+  width: fit-content;
+  margin-top: 30px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+}
+.contact .left-side a:hover {
+  background-color: #f7d800;
+}
+.contact .left-side a span {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.contact .right-side {
+  width: 50%;
+}
+
+footer {
+  margin: 0 -20px;
+  height: 50px;
+  text-align: center;
+  background-color: white;
+}
+footer span {
+  display: block;
+  padding-top: 10px;
+}

@@ -1,162 +1,78 @@
 import React, { Component } from 'react'
+import SlickSlide from '../components/slickSlide/slickSlide'
+import { SliderData } from '../components/slickSlide/slideData'
+import './Dashboard.css'
 
 class DashboardPage extends Component {
   render() {
     return (
-      <body>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
-        />
-        <link rel="stylesheet" href="/slick-slide/style.css" />
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="/slick-slide/slick-slide.js"></script>
-        <link
-          rel="stylesheet"
-          type="text/css"
-          href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
-        />
-        <script
-          type="text/javascript"
-          src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
-        ></script>
-
+      <React.Fragment>
         <div class="container">
-          <section class="club-news">
-            <div class="title-section">
-              <span class="span-title"> CLUB NEWS </span>
-              <div class="btn-view">
-                <a class="" href="/">
-                  <span> ALL NEWS </span>
-                </a>
+          <section class="header">
+            <div class="top-nav">
+              <div class="logo">
+                <i class="fas fa-bars"></i>
+                <img src="../../images/gaa-logo.jpg" alt="gaa-logo" />
+              </div>
+              <div class="intro">
+                <div class="intro-icon">
+                  <h3 class="title">Pitch Booking</h3>
+                  <span>Find a pitch to book</span>
+                </div>
+                <div class="intro-icon">
+                  <h3 class="title"> Fixtures and Results </h3>
+                  <span>View fixtures and results</span>
+                </div>
+                <div class="intro-icon">
+                  <h3>GAA News</h3>
+                  <span>Lastest news on GAA</span>
+                </div>
+                <div class="intro-icon">
+                  <h3>Online Shop</h3>
+                  <span>Shop our latest club gear</span>
+                </div>
+              </div>
+              <div class="support">
+                <span>
+                  <i class="fas fa-question-circle"></i> Support
+                </span>
               </div>
             </div>
-            <div class="slide">
-              <div class="my-slick-slide">
-                <div class="div-slide">
-                  <div class="image-slide"></div>
-                  <div class="div-title">
-                    <span>Golden Gloves Handball</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <div class="image-slide"></div>
-                  <div class="div-title">
-                    <span>All-Ireland Final 2019</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <div class="image-slide"></div>
-                  <div class="div-title">
-                    <span>Presentation Day</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <div class="image-slide"></div>
-                  <div class="div-title">
-                    <span>O'Neills Gear Collection</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <div class="image-slide"></div>
-                  <div class="div-title">
-                    <span>Ulster Minor Tournament</span>
-                  </div>
-                </div>
+            <div class="image-nav">
+              <div class="title-image">
+                GAA PITCH BOOKING PLATFORM
+              </div>
+              <div class="btn-search">
+                <input
+                  class="input-search"
+                  type="text"
+                  name="btnSearch"
+                  placeholder="Search here ..."
+                />
+                <i class="fas fa-search"></i>
+              </div>
+            </div>
+            <div class="bottom-nav">
+              <div class="bottom-item">
+                <i class="fas fa-check-square"></i>
+                <span>Amazing pitch</span>
+              </div>
+              <div class="bottom-item">
+                <i class="far fa-thumbs-up"></i>
+                <span>Great facility</span>
+              </div>
+              <div class="bottom-item">
+                <i class="fas fa-user-check"></i>
+                <span>Priority Members</span>
+              </div>
+              <div class="bottom-item">
+                <i class="far fa-smile"></i>
+                <span>Pitch perfect quality</span>
               </div>
             </div>
           </section>
+          <SlickSlide slides={SliderData} />
 
-          <section class="fixtures-and-results">
-            <div class="title-section">
-              <span class="span-title"> FIXTURES </span>
-              <div class="btn-view">
-                <a class="" href="/">
-                  <span> CLUB FIXTURES </span>
-                </a>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="my-slick-slide">
-                <div class="div-slide">
-                  <div class="image-slide"></div>
-                  <div class="div-title">
-                    <span>U12 FIXTURES</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <div class="image-slide"></div>
-                  <div class="div-title">
-                    <span>U14 FIXTURES</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <div class="image-slide"></div>
-                  <div class="div-title">
-                    <span>U16 FIXTURES</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <div class="image-slide"></div>
-                  <div class="div-title">
-                    <span>MINOR FIXTURES</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <div class="image-slide"></div>
-                  <div class="div-title">
-                    <span>SENIOR FIXTURES</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="facilities">
-            <div class="title-section">
-              <span class="span-title"> FACILITIES </span>
-              <div class="btn-view">
-                <a class="" href="/">
-                  <span> ALL FACILITIES </span>
-                </a>
-              </div>
-            </div>
-            <div class="slide">
-              <div class="my-slick-slide">
-                <div class="div-slide">
-                  <img src="/images/naomh-pol.jpg" alt="grass-pitch" />
-                  <div class="div-title">
-                    <span>Grass Pitch</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <img src="/images/naomh-pol.jpg" alt="3g-pitch" />
-                  <div class="div-title">
-                    <span>3G Pitch</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <img src="/images/naomh-pol.jpg" alt="handball-courts" />
-                  <div class="div-title">
-                    <span>Handball Courts</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <img src="/images/naomh-pol.jpg" alt="gymnasium" />
-                  <div class="div-title">
-                    <span>Gymnasium</span>
-                  </div>
-                </div>
-                <div class="div-slide">
-                  <img src="/images/naomh-pol.jpg" alt="mini-bus" />
-                  <div class="div-title">
-                    <span>Mini Bus</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
           <section class="contact">
             <div class="left-side">
               <span class="title">For Admin</span>
@@ -173,7 +89,7 @@ class DashboardPage extends Component {
             <span>Emer Rocks</span>
           </footer>
         </div>
-      </body>
+      </React.Fragment>
     )
   }
 }

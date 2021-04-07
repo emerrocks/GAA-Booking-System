@@ -9,16 +9,7 @@ const mainNavigation = (props) => (
       return (
         <header className="main-nav">
           <div className="main-nav-logo">
-            <h1>GAA Booking System </h1>
-          </div>
-          <div class="btn-search">
-            <input
-              class="input-search"
-              type="text"
-              name="btnSearch"
-              placeholder="Search here ..."
-            />
-            <i class="fas fa-search"></i>
+            <h1>GAA Pitch Booking System </h1>
           </div>
           <nav className="main-nav-items">
             <ul>

@@ -8,6 +8,7 @@ import MainNavigation from './components/Navigation/MainNavigation'
 import AuthContext from './context/auth-context'
 import DashboardPage from './pages/Dashboard'
 
+
 class App extends Component {
   state = {
     token: null,

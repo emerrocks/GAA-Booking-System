@@ -9,10 +9,6 @@ const app = express()
 
 app.use(express.json())
 
-app.get('/', (req, res) => {
-  res.send({ hello: 'there' })
-})
-
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
   res.setHeader('Access-Control-Allow-Methods', 'POST, GET, OPTIONS')
@@ -34,14 +30,12 @@ app.use(
   }),
 )
 
-const PORT = process.env.PORT || 8080
-
 mongoose
   .connect(
     `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.evofz.mongodb.net/${process.env.MONGO_DB}?retryWrites=true&w=majority`,
   )
   .then(() => {
-    app.listen(PORT)
+    app.listen(8080)
   })
   .catch((err) => {
     console.log(err)
