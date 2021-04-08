@@ -29,7 +29,11 @@ class AuthPage extends Component {
     const password = this.passwordElement.current.value
     const confirmPassword = this.confirmPasswordElement.current.value
 
-    if (email.trim().length === 0 || password.trim().length === 0 || confirmPassword.trim().length === 0) {
+    if (
+      email.trim().length === 0 ||
+      password.trim().length === 0 ||
+      confirmPassword.trim().length === 0
+    ) {
       return
     }
     let requestBody = {
@@ -105,8 +109,12 @@ class AuthPage extends Component {
           <input type="password" id="password" ref={this.passwordElement} />
         </div>
         <div className="form-control">
-          <label htmlFor="password">Confirm Password</label>
-          <input type="password" id="confirmPassword" ref={this.confirmPasswordElement} />
+          <label htmlFor="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            ref={this.confirmPasswordElement}
+          />
         </div>
         <div className="form-actions">
           <button type="submit"> Submit </button>

@@ -39,18 +39,7 @@ class DashboardPage extends Component {
               </div>
             </div>
             <div class="image-nav">
-              <div class="title-image">
-                GAA PITCH BOOKING PLATFORM
-              </div>
-              <div class="btn-search">
-                <input
-                  class="input-search"
-                  type="text"
-                  name="btnSearch"
-                  placeholder="Search here ..."
-                />
-                <i class="fas fa-search"></i>
-              </div>
+              <div class="title-image">GAA PITCH BOOKING PLATFORM</div>
             </div>
             <div class="bottom-nav">
               <div class="bottom-item">

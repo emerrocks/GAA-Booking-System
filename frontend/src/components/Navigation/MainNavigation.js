@@ -11,6 +11,15 @@ const mainNavigation = (props) => (
           <div className="main-nav-logo">
             <h1>GAA Pitch Booking System </h1>
           </div>
+          <div className="btn-search">
+            <input
+              className="input-search"
+              type="text"
+              name="btnSearch"
+              placeholder="Search here ..."
+            />
+            <i className="fas fa-search"></i>
+          </div>
           <nav className="main-nav-items">
             <ul>
               {!context.token && (

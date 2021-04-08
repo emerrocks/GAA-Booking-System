@@ -69,24 +69,6 @@
   font-size: 35px;
   margin: 40px 0;
 }
-.header .image-nav .btn-search {
-  border-radius: 25px;
-  padding: 10px;
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  width: 40%;
-}
-.header .image-nav .btn-search .input-search {
-  width: 100%;
-  border: none;
-  outline: none;
-  background-color: white;
-  padding-left: 10px;
-}
-.header .image-nav .btn-search i {
-    color: red;
-}
 .header .bottom-nav {
   height: 100px;
   display: flex;

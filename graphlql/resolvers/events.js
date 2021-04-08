@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   createEvent: async (args, req) => {
-    if(!req.isAuth){
+    if (!req.isAuth) {
       throw new Error('Unauthorised!')
     }
     const event = new Event({

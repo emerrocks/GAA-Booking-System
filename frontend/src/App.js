@@ -50,8 +50,8 @@ class App extends Component {
                 )}
                 <Route path="/events" component={EventsPage} />
                 {this.state.token && (
-                    <Route path="/bookings" component={BookingsPage} />
-                  ) && <Route path="/dashboard" component={DashboardPage} />}
+                  <Route path="/bookings" component={BookingsPage} />
+                )}
                 {!this.state.token && <Redirect to="/dashboard" exact />}
               </Switch>
             </main>
