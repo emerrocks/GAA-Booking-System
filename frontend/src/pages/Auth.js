@@ -14,6 +14,7 @@ class AuthPage extends Component {
     super(props)
     this.emailElement = React.createRef()
     this.passwordElement = React.createRef()
+    this.confirmPasswordElement = React.createRef()
   }
 
   switchModeHandler = () => {
@@ -26,14 +27,15 @@ class AuthPage extends Component {
     event.preventDefault()
     const email = this.emailElement.current.value
     const password = this.passwordElement.current.value
+    const confirmPassword = this.confirmPasswordElement.current.value
 
-    if (email.trim().length === 0 || password.trim().length === 0) {
+    if (email.trim().length === 0 || password.trim().length === 0 || confirmPassword.trim().length === 0) {
       return
     }
     let requestBody = {
       query: `
-        query Login($email: String!, $password: String!){ 
-          login(email: $email, password: $password){
+        query Login($email: String!, $password: String! $confirmPassword: String!){ 
+          login(email: $email, password: $password, confirmPassword: $confirmPassword){
           userId
           token
           tokenExpiration
@@ -43,13 +45,14 @@ class AuthPage extends Component {
       variables: {
         email: email,
         password: password,
+        confirmPassword: confirmPassword,
       },
     }
     if (!this.state.isLogin) {
       requestBody = {
         query: `
-          mutation CreateUser($email: String!, $password: String!) {
-            createUser(userInput: {email: $email, password: $password }){
+          mutation CreateUser($email: String!, $password: String!, $confirmPassword: String!) {
+            createUser(userInput: {email: $email, password: $password, confirmPassword: $confirmPassword}){
               _id
               email
             }
@@ -58,6 +61,7 @@ class AuthPage extends Component {
         variables: {
           email: email,
           password: password,
+          confirmPassword: confirmPassword,
         },
       }
     }
@@ -99,6 +103,10 @@ class AuthPage extends Component {
         <div className="form-control">
           <label htmlFor="password">Password</label>
           <input type="password" id="password" ref={this.passwordElement} />
+        </div>
+        <div className="form-control">
+          <label htmlFor="password">Confirm Password</label>
+          <input type="password" id="confirmPassword" ref={this.confirmPasswordElement} />
         </div>
         <div className="form-actions">
           <button type="submit"> Submit </button>

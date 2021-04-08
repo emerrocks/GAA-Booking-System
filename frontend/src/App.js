@@ -8,7 +8,6 @@ import MainNavigation from './components/Navigation/MainNavigation'
 import AuthContext from './context/auth-context'
 import DashboardPage from './pages/Dashboard'
 
-
 class App extends Component {
   state = {
     token: null,
@@ -51,8 +50,8 @@ class App extends Component {
                 )}
                 <Route path="/events" component={EventsPage} />
                 {this.state.token && (
-                  <Route path="/bookings" component={BookingsPage} />
-                )}
+                    <Route path="/bookings" component={BookingsPage} />
+                  ) && <Route path="/dashboard" component={DashboardPage} />}
                 {!this.state.token && <Redirect to="/dashboard" exact />}
               </Switch>
             </main>
