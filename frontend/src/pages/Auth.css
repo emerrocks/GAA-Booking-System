@@ -2,5 +2,15 @@
     width: 25rem;
     max-width: 80%;
     margin: 5rem auto;
+    padding-top: 10px;
 }
 
+.auth-form .mandatory {
+    color: red;
+}
+
+.auth-form .errorMessage {
+    font-size: 12px;
+    letter-spacing: 0.05rem;
+    padding-left: 0.25rem;
+}

@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import AuthContext from '../context/auth-context'
-
 import './Auth.css'
+import validateAuth from '../validation/validateAuth'
 
 class AuthPage extends Component {
   state = {
     isLogin: true,
+    email: '',
+    password: '',
+    confirmPassword: '',
+
   }
 
   static contextType = AuthContext
@@ -15,6 +19,13 @@ class AuthPage extends Component {
     this.emailElement = React.createRef()
     this.passwordElement = React.createRef()
     this.confirmPasswordElement = React.createRef()
+  }
+
+  handlePasswordChange = () => {
+    const { password, confirmPassword } = this.state;
+    if (password !== confirmPassword){
+      alert("Passwords do not match")
+    }
   }
 
   switchModeHandler = () => {
@@ -100,21 +111,45 @@ class AuthPage extends Component {
   render() {
     return (
       <form className="auth-form" onSubmit={this.submitHandler}>
-        <div className="form-control">
-          <label htmlFor="email">Email Address</label>
-          <input type="email" id="email" ref={this.emailElement} />
+        <div className="welcome">
+          <h1>
+            Welcome to the {this.state.isLogin ? 'Login Page' : 'Sign Up Page'}
+          </h1>
         </div>
         <div className="form-control">
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" ref={this.passwordElement} />
+          <label htmlFor="email">
+            Email Address<span className="mandatory">*</span>
+          </label>
+          <input
+            type="email"
+            id="email"
+            ref={this.emailElement}
+            placeholder="Enter email address"
+          />
         </div>
         <div className="form-control">
-          <label htmlFor="confirmPassword">Confirm Password</label>
+          <label htmlFor="password">
+            Password <span className="mandatory">*</span>
+          </label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            ref={this.passwordElement}
+          />
+        </div>
+        <div className="form-control">
+          <label htmlFor="confirmPassword">
+            Confirm Password <span className="mandatory">*</span>
+          </label>
           <input
             type="password"
             id="confirmPassword"
+            placeholder="Confirm Password"
+            onSubmit={this.handlePasswordChange}
             ref={this.confirmPasswordElement}
           />
+          {console.log(this.handlePasswordChange)}
         </div>
         <div className="form-actions">
           <button type="submit"> Submit </button>
