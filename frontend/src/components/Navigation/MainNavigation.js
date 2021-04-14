@@ -27,6 +27,11 @@ const mainNavigation = (props) => (
                   <NavLink to="/auth">Login</NavLink>
                 </li>
               )}
+              {!context.token && (
+                <li>
+                  <NavLink to="/admin">Admin</NavLink>
+                </li>
+              )}
               <li>
                 <NavLink to="/dashboard">Dashboard</NavLink>
               </li>

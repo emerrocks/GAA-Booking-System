@@ -12,6 +12,10 @@ const bookingSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'User',
     },
+    admin: {
+      type: Schema.Types.ObjectId,
+      ref: 'Admin',
+    },
   },
   {
     timestamps: true,

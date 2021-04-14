@@ -7,18 +7,24 @@ import BookingsPage from './pages/Bookings'
 import MainNavigation from './components/Navigation/MainNavigation'
 import AuthContext from './context/auth-context'
 import DashboardPage from './pages/Dashboard'
+import AdminPage from './pages/Admin'
 
 class App extends Component {
   state = {
     token: null,
     userId: null,
+    adminId: null,
   }
 
   login = (token, userId, tokenExpiration) => {
     this.setState({ token: token, userId: userId })
   }
+  adminLogin = (token, adminId, tokenExpiration) => {
+    this.setState({ token: token, adminId: adminId })
+  }
+
   logout = () => {
-    this.setState({ token: null, userId: null })
+    this.setState({ token: null, userId: null, adminId: null })
   }
 
   render() {
@@ -29,7 +35,9 @@ class App extends Component {
             value={{
               token: this.state.token,
               userId: this.state.userId,
+              adminId: this.state.adminId,
               login: this.login,
+              adminLogin: this.adminLogin,
               logout: this.logout,
             }}
           >
@@ -42,11 +50,17 @@ class App extends Component {
                 {this.state.token && (
                   <Redirect from="/auth" to="/events" exact />
                 )}
+                {this.state.token && (
+                  <Redirect from="/admin" to="/events" exact />
+                )}
                 {!this.state.token && (
                   <Route path="/dashboard" component={DashboardPage} />
                 )}
                 {!this.state.token && (
                   <Route path="/auth" component={AuthPage} />
+                )}
+                {!this.state.token && (
+                  <Route path="/admin" component={AdminPage} />
                 )}
                 <Route path="/events" component={EventsPage} />
                 {this.state.token && (

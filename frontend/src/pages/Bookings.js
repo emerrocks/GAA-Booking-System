@@ -113,6 +113,17 @@ class BookingsPage extends Component {
   }
   render() {
     let content = <Spinner />
+    // let bookingList = this.fetchBookings
+
+    // bookingList.map((data, index) => {
+    //   if (data) {
+    //     return (
+    //       <div key={data.bookingId}>
+    //         <h1>{data.bookingId}</h1>
+    //       </div>
+    //     )
+    //   }
+    // })
 
     if (!this.state.isLoading) {
       content = (

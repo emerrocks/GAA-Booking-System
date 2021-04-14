@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import AuthContext from '../context/auth-context'
-import './Auth.css'
+import './Admin.css'
 
-class AuthPage extends Component {
+class AdminPage extends Component {
   state = {
-    isLogin: true,
+    isAdminLogin: true,
     email: '',
     password: '',
     confirmPassword: '',
@@ -14,9 +14,9 @@ class AuthPage extends Component {
 
   constructor(props) {
     super(props)
-    this.emailElement = React.createRef()
-    this.passwordElement = React.createRef()
-    this.confirmPasswordElement = React.createRef()
+    this.adminEmailElement = React.createRef()
+    this.adminPasswordElement = React.createRef()
+    this.adminConfirmPasswordElement = React.createRef()
   }
 
   handlePasswordChange = () => {
@@ -28,15 +28,15 @@ class AuthPage extends Component {
 
   switchModeHandler = () => {
     this.setState((prevState) => {
-      return { isLogin: !prevState.isLogin }
+      return { isAdminLogin: !prevState.isAdminLogin }
     })
   }
 
   submitHandler = (event) => {
     event.preventDefault()
-    const email = this.emailElement.current.value
-    const password = this.passwordElement.current.value
-    const confirmPassword = this.confirmPasswordElement.current.value
+    const email = this.adminEmailElement.current.value
+    const password = this.adminPasswordElement.current.value
+    const confirmPassword = this.adminConfirmPasswordElement.current.value
 
     if (
       email.trim().length === 0 ||
@@ -47,9 +47,9 @@ class AuthPage extends Component {
     }
     let requestBody = {
       query: `
-        query Login($email: String!, $password: String! $confirmPassword: String!){ 
-          login(email: $email, password: $password, confirmPassword: $confirmPassword){
-          userId
+        query AdminLogin($email: String!, $password: String! $confirmPassword: String!){ 
+          adminLogin(email: $email, password: $password, confirmPassword: $confirmPassword){
+          adminId
           token
           tokenExpiration
         }
@@ -61,11 +61,11 @@ class AuthPage extends Component {
         confirmPassword: confirmPassword,
       },
     }
-    if (!this.state.isLogin) {
+    if (!this.state.isAdminLogin) {
       requestBody = {
         query: `
-          mutation CreateUser($email: String!, $password: String!, $confirmPassword: String!) {
-            createUser(userInput: {email: $email, password: $password, confirmPassword: $confirmPassword}){
+          mutation CreateAdmin($email: String!, $password: String!, $confirmPassword: String!) {
+            createAdmin(adminInput: {email: $email, password: $password, confirmPassword: $confirmPassword}){
               _id
               email
             }
@@ -93,11 +93,11 @@ class AuthPage extends Component {
         return res.json()
       })
       .then((resData) => {
-        if (resData.data.login.token) {
-          this.context.login(
-            resData.data.login.token,
-            resData.data.login.userId,
-            resData.data.login.tokenExpiration,
+        if (resData.data.adminLogin.token) {
+          this.context.adminLogin(
+            resData.data.adminLogin.token,
+            resData.data.adminLogin.adminId,
+            resData.data.adminLogin.tokenExpiration,
           )
         }
       })
@@ -108,10 +108,10 @@ class AuthPage extends Component {
 
   render() {
     return (
-      <form className="auth-form" onSubmit={this.submitHandler}>
+      <form className="admin-form" onSubmit={this.submitHandler}>
         <div className="welcome">
           <h1>
-            Welcome to the {this.state.isLogin ? 'Login Page' : 'Sign Up Page'}
+            Welcome to the {this.state.isAdminLogin ? 'Login Page' : 'Sign Up Page'}
           </h1>
         </div>
         <div className="form-control">
@@ -121,7 +121,7 @@ class AuthPage extends Component {
           <input
             type="email"
             id="email"
-            ref={this.emailElement}
+            ref={this.adminEmailElement}
             placeholder="Enter email address"
           />
         </div>
@@ -133,7 +133,7 @@ class AuthPage extends Component {
             type="password"
             id="password"
             placeholder="Enter Password"
-            ref={this.passwordElement}
+            ref={this.adminPasswordElement}
           />
         </div>
         <div className="form-control">
@@ -145,14 +145,14 @@ class AuthPage extends Component {
             id="confirmPassword"
             placeholder="Confirm Password"
             onSubmit={this.handlePasswordChange}
-            ref={this.confirmPasswordElement}
+            ref={this.adminConfirmPasswordElement}
           />
           {console.log(this.handlePasswordChange)}
         </div>
         <div className="form-actions">
           <button type="submit"> Submit </button>
           <button type="button" onClick={this.switchModeHandler}>
-            Switch to {this.state.isLogin ? 'Signup' : 'Login'}
+            Switch to {this.state.isAdminLogin ? 'Signup' : 'Login'}
           </button>
         </div>
       </form>
@@ -160,4 +160,4 @@ class AuthPage extends Component {
   }
 }
 
-export default AuthPage
+export default AdminPage

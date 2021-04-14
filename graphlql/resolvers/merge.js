@@ -2,6 +2,7 @@ const DataLoader = require('dataloader')
 
 const Event = require('../../models/event')
 const User = require('../../models/user')
+const Admin = require('../../models/admin')
 const { dateToString } = require('../../helpers/date')
 
 const eventLoader = new DataLoader((eventIds) => {
@@ -11,6 +12,10 @@ const eventLoader = new DataLoader((eventIds) => {
 
 const userLoader = new DataLoader((userIds) => {
   return User.find({ _id: { $in: userIds } })
+})
+
+const adminLoader = new DataLoader((adminIds) => {
+  return Admin.find({ _id: { $in: adminIds } })
 })
 
 const events = async (eventIds) => {
@@ -52,6 +57,18 @@ const user = async (userId) => {
   }
 }
 
+const admin = async (adminId) => {
+  try {
+    const admin = await adminLoader.load(adminId.toString())
+    return {
+      ...admin._doc,
+      _id: admin.id,
+    }
+  } catch (err) {
+    throw err
+  }
+}
+
 const transformEvent = (event) => {
   return {
     ...event._doc,
@@ -66,6 +83,7 @@ const transformBooking = (booking) => {
     ...booking._doc,
     _id: booking._id,
     user: user.bind(this, booking._doc.user),
+    admin: admin.bind(this, booking._doc.admin),
     event: oneEvent.bind(this, booking._doc.event),
     createdAt: dateToString(booking._doc.createdAt),
     updatedAt: dateToString(booking._doc.updatedAt),
