@@ -123,6 +123,7 @@ class AuthPage extends Component {
             id="email"
             ref={this.emailElement}
             placeholder="Enter email address"
+            required
           />
         </div>
         <div className="form-control">
@@ -134,6 +135,7 @@ class AuthPage extends Component {
             id="password"
             placeholder="Enter Password"
             ref={this.passwordElement}
+            required
           />
         </div>
         <div className="form-control">
@@ -146,6 +148,7 @@ class AuthPage extends Component {
             placeholder="Confirm Password"
             onSubmit={this.handlePasswordChange}
             ref={this.confirmPasswordElement}
+            required
           />
           {console.log(this.handlePasswordChange)}
         </div>

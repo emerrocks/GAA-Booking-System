@@ -5,9 +5,13 @@ const graphQlSchema = require('./graphlql/schema/index')
 const graphQlResolvers = require('./graphlql/resolvers/index')
 const isAuth = require('./middleware/is-auth')
 
+const cookieParser = require('cookie-parser')
+
 const app = express()
 
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser())
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
